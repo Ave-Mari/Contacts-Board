@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.header`
     display: flex;
     align-items: center;  
+    margin-bottom: 22px;
 
         h1 {
         font-family: 'Permanent Marker';
