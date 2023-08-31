@@ -25,37 +25,40 @@ function App() {
         view='create-contact'
         content={
           <div className='create-content'>
-            <h3>Create contact</h3>
+            <h3 className='form-headline'>Create contact</h3>
 
-            <input type="text" placeholder='Name'/>
-            <input type="text" placeholder='Phone'/>
-            <input type="email" placeholder='E-mail'/>
+            <input type="text" placeholder='Name' className='text-input'/>
+            <input type="text" placeholder='Phone' className='text-input'/>
+            <input type="email" placeholder='E-mail' className='text-input'/>
 
-            <p>Category:</p>
-            <div className="radio-block">
-              <label>
-                <input type="radio" />
-                  Uncorted
-              </label>
-              <label>
-                <input type="radio" />
-                  Personal
-              </label>
-              <label>
-                <input type="radio" />
-                  Family
-              </label>
-              <label>
-                <input type="radio" />
-                  Work
-              </label>
-              
-              
-            </div>
+            <p className='category'>Category:</p>
+            <div class="radio-block">
+        <div class="radio">
+          <input id="radio-1" name="radio" type="radio" checked />
+          <label for="radio-1" class="radio-label">Unsorted</label>
+        </div>
+
+        <div class="radio">
+          <input id="radio-2" name="radio" type="radio" />
+          <label  for="radio-2" class="radio-label">Personal</label>
+        </div>
+
+        <div class="radio">
+          <input id="radio-3" name="radio" type="radio" />
+          <label  for="radio-3" class="radio-label">Family</label>
+        </div>
+
+        <div class="radio">
+          <input id="radio-4" name="radio" type="radio" />
+          <label  for="radio-4" class="radio-label">Work</label>
+        </div>
+  
+      </div>
 
           </div>
         }
       />
+    
       
       <Header />
       <List />
