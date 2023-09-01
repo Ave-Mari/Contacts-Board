@@ -9,7 +9,8 @@ import './index.css';
 
 function App() { 
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const [infoVisible, setInfoVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -45,25 +46,24 @@ function App() {
     })
   }
 
+  const openForm = () => {
+    setFormVisible(true);
+  }
 
-
-  const openPopup = () => {
-    setShowPopup(true);
+  const openInfo = () => {
+    setInfoVisible(true)
   }
 
   const closePopup = () => {
-    setShowPopup(false);
+    setFormVisible(false);
+    setInfoVisible(false);
   }  
 
-  const styles = {
-    popup: {
-      //transition: showPopup ? 'translateY(0)' : 'translateY(-111111px)'
-      top: showPopup ? '-11111%' : '10%'
-    }
-  }
   return (
     <main>
-      {/* <Popup 
+      {infoVisible &&
+        <Popup 
+        closePopup={closePopup}
         content={
           <div className='info-content'>
           <p>This application can help you create and sort your contacts. 
@@ -73,93 +73,103 @@ function App() {
           </div>
 
         }
-      /> */}
-      <Popup 
-        style={styles.popup}
-        view='create-contact'
-        closePopup={closePopup}
-        content={
-          <form className='create-content' onSubmit={handleSubmit}>
-            <h3 className='form-headline'>Create contact</h3>
+/>
+      
+      }
+     
+      {formVisible &&
+       <Popup 
+       view='create-contact'
+       closePopup={closePopup}
+       content={
+         <form className='create-content' onSubmit={handleSubmit}>
+           <h3 className='form-headline'>Create contact</h3>
 
-            <input
-             value={formData.name}
-             onChange={inputTextChange}
-             type="text"
-             placeholder='Name'
-             className='text-input'
-             />
-            <input
-             value={formData.phone}
-             onChange={inputTextChange}
-             type="text"
-             placeholder='Phone'
-             className='text-input'
-             />
-            <input
-             value={formData.email}
-             onChange={inputTextChange}
-             type="email"
-             placeholder='E-mail'
-             className='text-input'
-             />
+           <input
+            value={formData.name}
+            onChange={inputTextChange}
+            type="text"
+            placeholder='Name'
+            className='text-input'
+            />
+           <input
+            value={formData.phone}
+            onChange={inputTextChange}
+            type="text"
+            placeholder='Phone'
+            className='text-input'
+            />
+           <input
+            value={formData.email}
+            onChange={inputTextChange}
+            type="email"
+            placeholder='E-mail'
+            className='text-input'
+            />
 
-            <p className='category'>Category:</p>
-            <div className="radio-block">
-        <div className="radio">
-          <input
-           value='unsorted'
-           onChange={inputRadioChange}
-           id="radio-1"
-           name="radio"
-           type="radio"
-           />
-          <label htmlFor="radio-1" className="radio-label">Unsorted</label>
-        </div>
+           <p className='category'>Category:</p>
+           <div className="radio-block">
+       <div className="radio">
+         <input
+          value='unsorted'
+          onChange={inputRadioChange}
+          id="radio-1"
+          name="radio"
+          type="radio"
+          />
+         <label htmlFor="radio-1" className="radio-label">Unsorted</label>
+       </div>
 
-        <div className="radio">
-          <input
-           value='personal'
-           onChange={inputRadioChange}
-           id="radio-2"
-           name="radio"
-           type="radio"
-           />
-          <label htmlFor="radio-2" className="radio-label">Personal</label>
-        </div>
+       <div className="radio">
+         <input
+          value='personal'
+          onChange={inputRadioChange}
+          id="radio-2"
+          name="radio"
+          type="radio"
+          />
+         <label htmlFor="radio-2" className="radio-label">Personal</label>
+       </div>
 
-        <div className="radio">
-          <input
-           value='family'
-           onChange={inputRadioChange}
-           id="radio-3"
-           name="radio"
-           type="radio"
-           />
-          <label  htmlFor="radio-3" className="radio-label">Family</label>
-        </div>
+       <div className="radio">
+         <input
+          value='family'
+          onChange={inputRadioChange}
+          id="radio-3"
+          name="radio"
+          type="radio"
+          />
+         <label  htmlFor="radio-3" className="radio-label">Family</label>
+       </div>
 
-        <div className="radio">
-          <input
-           value='work'
-           onChange={inputRadioChange}
-           id="radio-4"
-           name="radio"
-           type="radio"
-           />
-          <label  htmlFor="radio-4" className="radio-label">Work</label>
-        </div>
-  
-      </div>
+       <div className="radio">
+         <input
+          value='work'
+          onChange={inputRadioChange}
+          id="radio-4"
+          name="radio"
+          type="radio"
+          />
+         <label  htmlFor="radio-4" className="radio-label">Work</label>
+       </div>
+ 
+     </div>
 
-      <button type="submit" className='add-btn'>Add Contact</button>
+     <button type="submit" className='add-btn'>Add Contact</button>
 
-          </form>
-        }
-      />
+         </form>
+       }
+     />
+      
+    
+    }    
     
       
-      <Header openPopup={openPopup}/>
+      <Header 
+      openForm={openForm}
+      openInfo={openInfo}
+      
+      />
       <List />
     </main>
   )
