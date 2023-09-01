@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const Block = styled.div`
     position: absolute;
-    top: 10%;
+    //transform: translateY(-111111px);
+    //display: none;
+    //top: -1111%;
     width: ${props => props.view === 'create-contact' || 'info' ? '493px' : props => props.view === 'contact-more' ? '391px' : null};
     height: ${props => props.view === 'create-contact' ? '455px' : props => props.view === 'contact-more' || 'info' ? '352px' : null};  
     padding: 40px 22px;
@@ -50,13 +52,24 @@ export const Block = styled.div`
       font-size: 22px;
     }
 
+    .add-btn {
+      font-size: 25px;
+      border-radius: 24px;
+      background: #15013B;
+      color: #fff;
+      border: none;
+      padding: 7px 21px;
+      cursor: pointer;
 
+      &:hover {
+        background: #270569;
+      }
+    }
 
-
-    //////////////
 
     .radio-block {
       display: flex;
+      margin-bottom: 40px;
     }
 
     .radio-label {
