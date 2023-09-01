@@ -2,9 +2,6 @@ import styled from 'styled-components';
 
 export const Block = styled.div`
     position: absolute;
-    //transform: translateY(-111111px);
-    //display: none;
-    //top: -1111%;
     width: ${props => props.view === 'create-contact' || 'info' ? '493px' : props => props.view === 'contact-more' ? '391px' : null};
     height: ${props => props.view === 'create-contact' ? '455px' : props => props.view === 'contact-more' || 'info' ? '352px' : null};  
     padding: 40px 22px;
