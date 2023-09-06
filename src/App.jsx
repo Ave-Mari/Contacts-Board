@@ -6,6 +6,8 @@ import List from './components/List/List';
 import Popup from './components/Popup/Popup';
 //styles
 import './index.css';
+//files
+import Delete from './delete.svg'
 
 function App() { 
 
@@ -61,15 +63,32 @@ function App() {
 
   return (
     <main>
+      <Popup
+      view="contact-more"
+      content={
+        <div className='contact-more-content'>
+          <button className='delete'>
+            <img className='delete-img' src={Delete} alt="delete"></img>
+          </button>
+          <div className='image'></div>
+          <h3 className='name'>Alan Smith</h3>
+          <p className='phone'>+4858383389</p>
+          <p className='email'>helloalan@example.com</p>
+        </div>
+
+      } 
+      />
+
       {infoVisible &&
         <Popup 
+        view='info'
         closePopup={closePopup}
         content={
           <div className='info-content'>
           <p>This application can help you create and sort your contacts. 
           After adding your contact to list you can move it through categories using drag and drop feature. You can also open your contact from list to see more info or delete it from list.
           </p>
-          <p>Github: https://github.com/Ave-Mari </p>
+          <p>Github: <a>https://github.com/Ave-Mari</a></p>
           </div>
 
         }
@@ -109,7 +128,7 @@ function App() {
 
            <p className='category'>Category:</p>
            <div className="radio-block">
-       <div className="radio">
+         <div className="radio">
          <input
           value='unsorted'
           onChange={inputRadioChange}
