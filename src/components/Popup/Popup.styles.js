@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Block = styled.div`
     position: absolute;
-    width: ${props => props.view === 'create-contact' || 'info' ? '493px' : props => props.view === 'contact-more' ? '391px' : null};
-    height: ${props => props.view === 'create-contact' ? '455px' : props => props.view === 'contact-more' || 'info' ? '352px' : null};  
+    top: 10%;
+    width: ${props => props.view === 'create-contact' ? '493px' : props => props.view === 'contact-more' ? '252px' : props => props.view === 'info' ? '432px' : null};
+    height: ${props => props.view === 'create-contact' ? '455px' : props => props.view === 'info' ? '149px' : props => props.view === 'contact-more' ? '190px' : null};  
     padding: 40px 22px;
     color: #fff;
     border-radius: 26px;
@@ -130,6 +131,48 @@ export const Block = styled.div`
         }
       }
     }
+
+    ///////Contact More
+
+    .contact-more-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image {
+      background: #b5a9a9;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+
+    .name, .phone, .email{
+      margin-top: 0px;
+    }
+
+    .name, .phone, .email{
+      margin-bottom: 11px;
+    }
+
+    .image {
+      margin-bottom: 7px;
+    }
+
+    .delete {
+      background: none;
+      border: none;
+      position: absolute;
+      top: 5%;
+      left: 4%;
+    }
+
+    .delete-img {
+      width: 23px;
+    }
+
+    
+    
+
 
    
 
