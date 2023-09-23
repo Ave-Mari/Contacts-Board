@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFormData } from './formActions'
 import {addContact} from './store/ContactsSlice'
 //components
 import Header from './components/Header/Header';
