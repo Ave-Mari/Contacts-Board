@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFormData } from './formActions'
+import {addContact} from './store/ContactsSlice'
 //components
 import Header from './components/Header/Header';
 import List from './components/List/List';
@@ -10,6 +12,8 @@ import './index.css';
 import Delete from './delete.svg'
 
 function App() { 
+  const dispatch = useDispatch();
+  const contactsList = useSelector(state => state.contactsList);  
 
   const [formVisible, setFormVisible] = useState(false);
   const [infoVisible, setInfoVisible] = useState(false);
@@ -17,13 +21,12 @@ function App() {
     name: '',
     phone: '',
     email: '',
-    category: ''
+    category: 'unsorted'
   })
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const id = new Date().valueOf();
-    addFormData(id, formData);
+    dispatch(addContact({...formData, id: new Date().valueOf()}));
     setFormData({
       name: '',
       phone: '',
@@ -32,19 +35,20 @@ function App() {
     })
       
   }
-
+  
   const inputTextChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
+
     })
   }
 
   const inputRadioChange = (e) => {
     setFormData({
       ...formData,
-      radioButton: e.target.value
+      category: e.target.value
     })
   }
 
@@ -61,9 +65,11 @@ function App() {
     setInfoVisible(false);
   }  
 
+  //const addContact = 
+
   return (
     <main>
-      <Popup
+      {/* <Popup
       view="contact-more"
       content={
         <div className='contact-more-content'>
@@ -77,7 +83,7 @@ function App() {
         </div>
 
       } 
-      />
+      /> */}
 
       {infoVisible &&
         <Popup 
@@ -105,6 +111,7 @@ function App() {
            <h3 className='form-headline'>Create contact</h3>
 
            <input
+            name='name'
             value={formData.name}
             onChange={inputTextChange}
             type="text"
@@ -112,6 +119,7 @@ function App() {
             className='text-input'
             />
            <input
+            name='phone'
             value={formData.phone}
             onChange={inputTextChange}
             type="text"
@@ -119,6 +127,7 @@ function App() {
             className='text-input'
             />
            <input
+            name='email'
             value={formData.email}
             onChange={inputTextChange}
             type="email"
@@ -133,7 +142,7 @@ function App() {
           value='unsorted'
           onChange={inputRadioChange}
           id="radio-1"
-          name="radio"
+          name="categoty"
           type="radio"
           />
          <label htmlFor="radio-1" className="radio-label">Unsorted</label>
@@ -144,7 +153,7 @@ function App() {
           value='personal'
           onChange={inputRadioChange}
           id="radio-2"
-          name="radio"
+          name="categoty"
           type="radio"
           />
          <label htmlFor="radio-2" className="radio-label">Personal</label>
@@ -155,7 +164,7 @@ function App() {
           value='family'
           onChange={inputRadioChange}
           id="radio-3"
-          name="radio"
+          name="categoty"
           type="radio"
           />
          <label  htmlFor="radio-3" className="radio-label">Family</label>
@@ -166,7 +175,7 @@ function App() {
           value='work'
           onChange={inputRadioChange}
           id="radio-4"
-          name="radio"
+          name="categoty"
           type="radio"
           />
          <label  htmlFor="radio-4" className="radio-label">Work</label>
