@@ -14,7 +14,7 @@ export const Card = styled.div`
   .photoPrev {
     width: 50px;
     height: 50px;
-    background: #aaa;
+    background: #acacac;
     border-radius: 50%;
     margin-bottom: 7px;
   }
@@ -32,5 +32,10 @@ export const Card = styled.div`
     background: none;
     border: none;
     color: #fff;
+
+    &:hover {
+        color: #ffb62b;
+        cursor: pointer;
+    }
   }
 `;
