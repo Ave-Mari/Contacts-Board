@@ -98,10 +98,10 @@ function App() {
         closePopup={closePopup}
         content={
           <div className='info-content'>
-          <p>This application can help you create and sort your contacts. 
+          <p className='info-text'>This application can help you create and sort your contacts. 
           After adding your contact to list you can move it through categories using drag and drop feature. You can also open your contact from list to see more info or delete it from list.
           </p>
-          <p>Github: <a>https://github.com/Ave-Mari</a></p>
+          <p className='info-text'>Github:  <a target="_blanc" href="https://github.com/Ave-Mari"> Ave-Mari</a></p>
           </div>
 
         }
