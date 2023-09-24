@@ -40,7 +40,7 @@ export const Card = styled.div`
     right: 9%;
 
     &:hover {
-        color: #ffb62b;
+        color: #00ff9f;
         cursor: pointer;
     }
   }
