@@ -1,5 +1,7 @@
 import React from 'react';
-import { Wrapper } from './CategoryCard.styles'
+//components
+import ContactCard from '../ContactCard/ContactCard'
+import { Wrapper } from './CategoryBoard.styles';
 
 export default function CategoryCard({category}) {
   return (
@@ -7,7 +9,11 @@ export default function CategoryCard({category}) {
         
         <div className='category-card'>
         <h2>{category}</h2>
-        <div className='card'></div>
+        <div className='card'>
+
+          <ContactCard />
+          
+        </div>
         </div>
 
     </Wrapper>
