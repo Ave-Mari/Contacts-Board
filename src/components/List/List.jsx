@@ -8,10 +8,10 @@ import { Wrapper } from './List.styles'
 export default function () {
   return (
     <Wrapper>
-      <CategoryCard category="Unsorted"/>
-      <CategoryCard category="Personal"/>
-      <CategoryCard category="Family"/>
-      <CategoryCard category="Work"/>        
+      <CategoryCard componentCategory="Unsorted"/>
+      <CategoryCard componentCategory="Personal"/>
+      <CategoryCard componentCategory="Family"/>
+      <CategoryCard componentCategory="Work"/>        
     </Wrapper>
   )
 }
