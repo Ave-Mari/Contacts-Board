@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {addContact} from './store/ContactsSlice'
+import React, { createContext, useContext } from 'react';
+import { addContact } from './store/ContactsSlice'
 //components
 import Header from './components/Header/Header';
 import List from './components/List/List';
@@ -9,6 +10,8 @@ import Popup from './components/Popup/Popup';
 import './index.css';
 //files
 import Delete from './delete.svg'
+
+const OpenContext = createContext();
 
 function App() { 
   const dispatch = useDispatch();
@@ -65,7 +68,13 @@ function App() {
     setInfoVisible(false);
   }  
 
+  const openContactCard = (e) => {
+    e.preventDefault();
+    console.log('context is working@!!')
+  }
+
     return (
+      <OpenContext.Provider value={openContactCard}> 
     <main>
       {/* <Popup
       view="contact-more"
@@ -198,6 +207,7 @@ function App() {
       />
       <List />
     </main>
+    </OpenContext.Provider>
   )
 }
 
