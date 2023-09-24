@@ -1,6 +1,6 @@
 import React from 'react';
 //components
-import CategoryCard from './../CategoryCard/CategoryCard'
+import CategoryCard from '../CategoryCard/CategoryBoard'
 //styles
 import { Wrapper } from './List.styles'
 
