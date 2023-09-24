@@ -26,6 +26,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addContact({...formData, id: new Date().valueOf()}));
+    setFormVisible(false);
     setFormData({
       name: '',
       phone: '',
@@ -64,9 +65,7 @@ function App() {
     setInfoVisible(false);
   }  
 
-  //const addContact = 
-
-  return (
+    return (
     <main>
       {/* <Popup
       view="contact-more"
@@ -138,7 +137,7 @@ function App() {
            <div className="radio-block">
          <div className="radio">
          <input
-          value='unsorted'
+          value='Unsorted'
           onChange={inputRadioChange}
           id="radio-1"
           name="categoty"
@@ -149,7 +148,7 @@ function App() {
 
        <div className="radio">
          <input
-          value='personal'
+          value='Personal'
           onChange={inputRadioChange}
           id="radio-2"
           name="categoty"
@@ -160,7 +159,7 @@ function App() {
 
        <div className="radio">
          <input
-          value='family'
+          value='Family'
           onChange={inputRadioChange}
           id="radio-3"
           name="categoty"
@@ -171,7 +170,7 @@ function App() {
 
        <div className="radio">
          <input
-          value='work'
+          value='Work'
           onChange={inputRadioChange}
           id="radio-4"
           name="categoty"
