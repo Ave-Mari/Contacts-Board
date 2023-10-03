@@ -1,27 +1,39 @@
 import styled from "styled-components";
 
-export const Block = styled.div`
-  position: absolute;
-  z-index: 1000;s
-  top: 10%;
-  width: ${(props) =>
-    props.view === "create-contact"
-      ? "493px"
-      : (props) =>
-          props.view === "contact-more"
-            ? "252px"
-            : (props) => (props.view === "info" ? "432px" : null)};
-  height: ${(props) =>
-    props.view === "create-contact"
-      ? "455px"
-      : (props) =>
-          props.view === "info"
-            ? "179px"
-            : (props) => (props.view === "contact-more" ? "190px" : null)};
-  padding: 40px 22px;
-  color: #fff;
-  border-radius: 26px;
-  background: #7434eb;
+export const PopupWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+
+  .popup-block {
+    position: absolute;
+
+    top: 10%;
+    width: ${(props) =>
+      props.view === "create-contact"
+        ? "493px"
+        : (props) =>
+            props.view === "contact-more"
+              ? "252px"
+              : (props) => (props.view === "info" ? "432px" : null)};
+    height: ${(props) =>
+      props.view === "create-contact"
+        ? "455px"
+        : (props) =>
+            props.view === "info"
+              ? "179px"
+              : (props) => (props.view === "contact-more" ? "190px" : null)};
+    padding: 40px 22px;
+    color: #fff;
+    border-radius: 26px;
+    background: #7434eb;
+  }
 
   .close-btn {
     position: absolute;
@@ -35,7 +47,7 @@ export const Block = styled.div`
 
     &:hover {
       color: #00ff9f;
-  }
+    }
   }
 
   .create-content {
