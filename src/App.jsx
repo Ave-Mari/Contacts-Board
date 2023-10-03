@@ -16,6 +16,7 @@ const OpenContext = createContext();
 function App() { 
   const dispatch = useDispatch();
   const contactsList = useSelector(state => state.contactsList);  
+  console.log(contactsList)
 
   const [formVisible, setFormVisible] = useState(false);
   const [infoVisible, setInfoVisible] = useState(false);
