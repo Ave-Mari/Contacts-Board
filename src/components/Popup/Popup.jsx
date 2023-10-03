@@ -1,13 +1,15 @@
-import React from 'react';
-import { Block } from './Popup.styles'
+import React from "react";
+import { PopupWrapper } from "./Popup.styles";
 
 export default function Popup({ content, view, closePopup }) {
   return (
-    <Block view={view}>
-        <button className='close-btn' onClick={closePopup}>✕</button>
-
+    <PopupWrapper className="wrapper" onClick={closePopup}>
+      <div className="popup-block" view={view}>
+        <button className="close-btn" onClick={closePopup}>
+          ✕
+        </button>
         {content}
-
-    </Block>
-  )
+      </div>
+    </PopupWrapper>
+  );
 }
