@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import ContactCard from '../ContactCard/ContactCard'
 import { Wrapper } from './CategoryBoard.styles';
 
-export default function CategoryCard({componentCategory}) {
+export default function CategoryCard({ componentCategory, openContactCard }) {
   const contactsList = useSelector(state => state.contactsSlice.contactsList); 
 
   return (
@@ -19,7 +19,9 @@ export default function CategoryCard({componentCategory}) {
             return (
               <ContactCard
               key={id}
+              id={id}
               name={name}  
+              openContactCard={openContactCard}
               />
             )
           }
