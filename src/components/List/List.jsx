@@ -1,17 +1,21 @@
-import React from 'react';
+import React from "react";
 //components
-import CategoryCard from '../CategoryCard/CategoryBoard'
+import CategoryCard from "../CategoryCard/CategoryBoard";
 //styles
-import { Wrapper } from './List.styles'
+import { Wrapper } from "./List.styles";
 
-
-export default function () {
+export default function List({openContactCard}) {
+ const boards = ["Unsorted", "Personal", "Family", "Work"];
   return (
     <Wrapper>
-      <CategoryCard componentCategory="Unsorted"/>
-      <CategoryCard componentCategory="Personal"/>
-      <CategoryCard componentCategory="Family"/>
-      <CategoryCard componentCategory="Work"/>        
+      {boards.map((board) => {
+        return (
+          <CategoryCard 
+          openContactCard={openContactCard}
+          componentCategory={board} 
+          />
+        )       
+      })}
     </Wrapper>
-  )
+  );
 }
