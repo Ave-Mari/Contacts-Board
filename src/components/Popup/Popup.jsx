@@ -6,7 +6,7 @@ export default function Popup({ content, view, closePopup }) {
   
   return (
     <PopupWrapper className="wrapper" onClick={closePopup}>
-      <div className="popup-block" view={view}>
+      <div className="popup-block" id={view}>
         <button className="close-btn" onClick={closePopup}>
           ✕
         </button>
