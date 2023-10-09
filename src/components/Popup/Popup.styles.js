@@ -11,24 +11,19 @@ export const PopupWrapper = styled.div`
   display: flex;
   justify-content: center;
 
+  #info {
+    width: 432px;
+  }
+  #create-contact {
+    width: 493px;
+  }
+  #contact-more {
+    width: 252px;
+  }
+
   .popup-block {
     position: absolute;
-
     top: 10%;
-    width: ${(props) =>
-      props.view === "create-contact"
-        ? "493px"
-        : (props) =>
-            props.view === "contact-more"
-              ? "252px"
-              : (props) => (props.view === "info" ? "432px" : null)};
-    height: ${(props) =>
-      props.view === "create-contact"
-        ? "455px"
-        : (props) =>
-            props.view === "info"
-              ? "179px"
-              : (props) => (props.view === "contact-more" ? "190px" : null)};
     padding: 40px 22px;
     color: #fff;
     border-radius: 26px;
